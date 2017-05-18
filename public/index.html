@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+   <base href="/">
+    <meta charset="UTF-8">
+    <title>Angular Chat App</title>
+    
+    
+    <link rel="stylesheet" href="css/main.min.css">
+    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+</head>
+<body>
+    <section class="section-chat" ng-controller="chatCtrl as chat" ng-cloak>
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header__author">
+                    {{chat.author.displayName +' : '+ chat.author.email}}
+                </div>
+                <div class="chat-headers__buttons">
+                    <button ng-if="!chat.author" class="btn btn-green" ng-click="chat.login()">Login</button>
+                    <button ng-if="chat.author" class="btn btn-red" ng-click="chat.logout()">Logout</button>
+                </div>
+            </div>
+            <div class="chat-body">
+                <ul class="massages">
+                    <li class="massage" ng-class="{'massage-mine' : key.authorId == chat.author.uid}" ng-repeat="key in chat.showLimitMassage">
+                        <div class="author_info">
+                            <img ng-src="{{key.authorPhoto}}" alt="{{key.authorName}}" class="img author__img">
+                        <span class="massage__author">{{key.authorName}}</span>
+                        </div>
+                        <div class="massage__text">{{key.text}}</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="chat-footer">
+                <textarea enter-sender="chat.sendMassage()" rows="5" ng-model="chat.newMassage" placeholder="Type massage here..."></textarea>
+                <button class="btn btn-green" ng-click="chat.sendMassage()">Send</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="js/vendor.min.js"></script>
+
+<script src="js/main.min.js"></script>
+</html>

@@ -1,0 +1,76 @@
+@import vars
+    
+.section-chat
+    min-height: 350px
+    display: flex
+    justify-content: center
+    align-items: center
+    
+.chat-window
+    width: 70%
+    box-shadow: 0 5px 30px -10px #000
+    border-radius: 10px
+    overflow: hidden
+
+.chat-header,
+.chat-footer
+    text-align: center
+    padding: 20px
+    box-shadow: 0 0 20px -5px #000
+    
+.chat-header
+    display: flex
+    justify-content: space-between
+    
+.chat-header__author
+    font-weight: 700
+    font-size: 18px
+
+.author_info
+    display: flex
+    align-items: center
+    
+.author__img
+    height: 50px
+    width: 50px
+    border-radius: 50%;
+    border: 2px solid #fff
+    margin-right: 20px
+
+.massage__author
+    font-weight: 700
+    
+.chat-body
+    height: 400px
+    overflow-y: scroll
+    padding: 20px
+    
+.massages
+    margin: 0
+    padding: 0
+    list-style-type: none
+    
+.massage
+    background-color: $light
+    border-radius: 10px
+    padding: 10px
+    margin-bottom: 10px
+    border: 1px solid #eee
+    width: 80%
+    float: left
+    
+.massage-mine
+    float: right
+    color: #fff
+    background-color: $mainColorBlock
+    
+.chat-footer
+    textarea
+        width: 70%
+        padding: 10px
+        border: none
+        box-shadow: 0 0 10px -5px #000
+        border-radius: 10px
+        outline: none
+        
+        
